@@ -1,4 +1,4 @@
-# DevSecOps-Online-Quiz-Portal-WebApp-Deployment  ![Docker Image CI](https://github.com/yash509/DevSecOps-BB-Char-React-App-Deployment/actions/workflows/docker-image.yml/badge.svg)](https://github.com/yash509/DevSecOps-BB-Char-React-App-Deployment/actions/workflows/docker-image.yml)
+# DevSecOps-Online-Quiz-Portal-WebApp-Deployment  ![Docker Image CI](https://github.com/yash509/DevSecOps-BB-Char-React-App-Deployment/actions/workflows/docker-image.yml/badge.svg)
 
 
 <div align="center">
