@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pe-wa-deployment
-  namespace: pe-wa
+  name: quiz-portal-deployment
+  namespace: web-app
 spec:
   replicas: 6 # You can adjust the number of replicas as needed
   selector:
     matchLabels:
-      app: pe-wa
+      app: quiz-portal
   template:
     metadata:
       labels:
-        app: pe-wa
+        app: quiz-portal
     spec:
       containers:
-        - name: pe-wa
-          image: yash5090/pe-wa:latest # Replace with the actual image tag
+        - name: quiz-portal
+          image: yash5090/quiz-portal:latest # Replace with the actual image tag
           ports:
             - containerPort: 5000 # Replace with the port your Tetris game listens on
             volumeMounts:
-          - name: pe-wa-storage
+          - name: quiz-portal-storage
             mountPath: /data  #Mount path inside the container
       volumes:
-      - name: pe-wa-storage
+      - name: quiz-portal-storage
         persistentVolumeClaim:
-          claimName: pe-wa-pvc  # Reference to the PVC
+          claimName: quiz-portal-pvc  # Reference to the PVC
