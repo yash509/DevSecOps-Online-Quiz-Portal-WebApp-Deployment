@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pe-wa-pv
+  name: quiz-portal-pv
   namespace: web-app
 spec:
   capacity:
