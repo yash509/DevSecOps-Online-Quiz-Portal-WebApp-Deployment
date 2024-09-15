@@ -150,7 +150,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'snyk', variable: 'snyk')]) {
                    sh 'snyk auth $snyk'
                    sh 'snyk test --all-projects --report || true'
-                   sh 'snyk code test --json-file-output=vuln1.json || true'
+                   sh 'snyk code test --json-file-output=vuln1.json > snykloadedvulnerabilityreport.txt || true '
                 }   
             }
         } 
@@ -215,7 +215,7 @@ pipeline {
         steps {
                 withCredentials([string(credentialsId: 'snyk', variable: 'snyk')]) {
                    sh 'snyk auth $snyk'
-                   sh 'snyk container test yash5090/quiz-portal:latest --report || true'
+                   sh 'snyk container test yash5090/quiz-portal:latest > snykvulnerabilityreport.txt --report || true '
                 }
             }
         }    
@@ -322,7 +322,7 @@ pipeline {
                 from: 'jenkins@example.com', 
                 replyTo: 'jenkins@example.com', 
                 mimeType: 'text/html', 
-                attachmentsPattern: 'trivy-image-report.html, trivyfs.txt, trivyimage.txt') 
+                attachmentsPattern: 'trivy-image-report.html, trivyfs.txt, trivyimage.txt, snykvulnerabilityreport.txt, snykloadedvulnerabilityreport.txt') 
             } 
         } 
     }
