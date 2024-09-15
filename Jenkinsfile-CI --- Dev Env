@@ -142,6 +142,16 @@ pipeline {
                 }   
             }
         }
+
+        stage('Snyk Loaded Vulnerability Test') {
+        steps {
+                withCredentials([string(credentialsId: 'snyk', variable: 'snyk')]) {
+                   sh 'snyk auth $snyk'
+                   sh 'snyk test --all-projects --report || true'
+                   sh 'snyk code test --json-file-output=vuln1.json || true'
+                }   
+            }
+        } 
         
         stage("Docker Image Building"){
             steps{
@@ -198,6 +208,15 @@ pipeline {
                 }   
             }
         }
+
+        stage('Snyk Docker Image Vulnerability Scannning') {
+        steps {
+                withCredentials([string(credentialsId: 'snyk', variable: 'snyk')]) {
+                   sh 'snyk auth $snyk'
+                   sh 'snyk container test yash5090/quiz-portal:latest --report || true'
+                }
+            }
+        }    
         
         stage("TRIVY"){
             steps{
