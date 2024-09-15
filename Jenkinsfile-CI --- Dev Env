@@ -22,6 +22,8 @@ pipeline {
                 sh 'terraform --version'
                 sh 'trivy --version'
                 sh 'docker --version'
+                sh 'ansible --version'
+                sh 'snyk --version'
             }
         }
         
